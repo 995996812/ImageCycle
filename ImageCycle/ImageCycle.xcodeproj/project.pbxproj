@@ -15,6 +15,11 @@
 		843CD55021F9CAD9004306AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD54F21F9CAD9004306AC /* main.m */; };
 		843CD55A21F9CAD9004306AC /* ImageCycleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD55921F9CAD9004306AC /* ImageCycleTests.m */; };
 		843CD56521F9CADA004306AC /* ImageCycleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD56421F9CADA004306AC /* ImageCycleUITests.m */; };
+		843CD57621F9CB18004306AC /* timg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843CD57221F9CB18004306AC /* timg3.jpg */; };
+		843CD57721F9CB18004306AC /* timg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843CD57321F9CB18004306AC /* timg.jpg */; };
+		843CD57821F9CB18004306AC /* timg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843CD57421F9CB18004306AC /* timg1.jpg */; };
+		843CD57921F9CB18004306AC /* timg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 843CD57521F9CB18004306AC /* timg2.jpg */; };
+		843CD57C21F9CB21004306AC /* HZImageCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD57A21F9CB21004306AC /* HZImageCycle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,12 @@
 		843CD56021F9CADA004306AC /* ImageCycleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCycleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		843CD56421F9CADA004306AC /* ImageCycleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCycleUITests.m; sourceTree = "<group>"; };
 		843CD56621F9CADA004306AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843CD57221F9CB18004306AC /* timg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg3.jpg; sourceTree = "<group>"; };
+		843CD57321F9CB18004306AC /* timg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpg; sourceTree = "<group>"; };
+		843CD57421F9CB18004306AC /* timg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg1.jpg; sourceTree = "<group>"; };
+		843CD57521F9CB18004306AC /* timg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg2.jpg; sourceTree = "<group>"; };
+		843CD57A21F9CB21004306AC /* HZImageCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZImageCycle.m; sourceTree = "<group>"; };
+		843CD57B21F9CB21004306AC /* HZImageCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZImageCycle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +112,12 @@
 		843CD53F21F9CAD8004306AC /* ImageCycle */ = {
 			isa = PBXGroup;
 			children = (
+				843CD57321F9CB18004306AC /* timg.jpg */,
+				843CD57421F9CB18004306AC /* timg1.jpg */,
+				843CD57521F9CB18004306AC /* timg2.jpg */,
+				843CD57221F9CB18004306AC /* timg3.jpg */,
+				843CD57B21F9CB21004306AC /* HZImageCycle.h */,
+				843CD57A21F9CB21004306AC /* HZImageCycle.m */,
 				843CD54021F9CAD8004306AC /* AppDelegate.h */,
 				843CD54121F9CAD8004306AC /* AppDelegate.m */,
 				843CD54321F9CAD8004306AC /* ViewController.h */,
@@ -235,6 +252,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843CD57621F9CB18004306AC /* timg3.jpg in Resources */,
+				843CD57721F9CB18004306AC /* timg.jpg in Resources */,
+				843CD57821F9CB18004306AC /* timg1.jpg in Resources */,
+				843CD57921F9CB18004306AC /* timg2.jpg in Resources */,
 				843CD54D21F9CAD9004306AC /* LaunchScreen.storyboard in Resources */,
 				843CD54A21F9CAD9004306AC /* Assets.xcassets in Resources */,
 				843CD54821F9CAD8004306AC /* Main.storyboard in Resources */,
@@ -264,6 +285,7 @@
 			files = (
 				843CD54521F9CAD8004306AC /* ViewController.m in Sources */,
 				843CD55021F9CAD9004306AC /* main.m in Sources */,
+				843CD57C21F9CB21004306AC /* HZImageCycle.m in Sources */,
 				843CD54221F9CAD8004306AC /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BDPQKE9W28;
 				INFOPLIST_FILE = ImageCycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BDPQKE9W28;
 				INFOPLIST_FILE = ImageCycle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
