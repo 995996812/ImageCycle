@@ -27,6 +27,8 @@
 @property(nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, assign) BOOL isTimer;
+
+@property (nonatomic, strong) UIPageControl *control;
 @end
 @implementation HZImageCycle
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -42,6 +44,7 @@
     [self.scrollView addSubview:self.image1];
     [self.scrollView addSubview:self.image2];
     [self.scrollView addSubview:self.image3];
+    [self addSubview:self.control];
     
     self.index = 0;
     
@@ -53,6 +56,7 @@
 - (void)setDataSource:(NSArray *)dataSource{
     _dataSource = dataSource;
     
+    self.control.numberOfPages = dataSource.count;
     [self.imgArr addObjectsFromArray:dataSource];
     [self setImagData:self.image1 index:self.imgArr.count - 1];
     [self setImagData:self.image2 index:self.index];
@@ -138,7 +142,7 @@
             [self setImagData:self.image3 index:self.index + 1];
         }
     }
-    
+    self.control.currentPage = self.index;
     [self.scrollView setContentOffset:CGPointMake(kScreenW, 0) animated:NO];
 }
 
@@ -169,6 +173,15 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
     }
     return _scrollView;
+}
+
+- (UIPageControl *)control{
+    if (!_control) {
+        _control = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.frame.size.height - 30, kScreenW, 30)];
+        _control.pageIndicatorTintColor = [UIColor redColor];
+        _control.currentPageIndicatorTintColor = [UIColor greenColor];
+    }
+    return _control;
 }
 
 - (UIImageView *)image1{
