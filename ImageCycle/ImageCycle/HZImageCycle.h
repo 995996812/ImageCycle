@@ -12,5 +12,7 @@
 
 @property (nonatomic, strong) NSArray *dataSource;
 
+@property (nonatomic, copy) void(^didSelectImageBlock)(NSInteger index);
+
 @end
 

@@ -21,6 +21,11 @@
     
     [self.view addSubview:self.imageCycle];
     self.imageCycle.dataSource = @[@"timg.jpg",@"timg1.jpg",@"timg2.jpg",@"timg3.jpg"];
+    
+    self.imageCycle.didSelectImageBlock = ^(NSInteger index) {
+      
+        NSLog(@"%ld",(long)index);
+    };
 }
 
 - (HZImageCycle *)imageCycle{

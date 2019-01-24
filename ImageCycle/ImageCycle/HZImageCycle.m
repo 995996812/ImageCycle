@@ -23,6 +23,10 @@
 @property(nonatomic, assign) NSInteger index;
 
 @property(nonatomic, strong) NSMutableArray *imgArr;
+
+@property(nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, assign) BOOL isTimer;
 @end
 @implementation HZImageCycle
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -50,20 +54,56 @@
     _dataSource = dataSource;
     
     [self.imgArr addObjectsFromArray:dataSource];
-    
     [self setImagData:self.image1 index:self.imgArr.count - 1];
     [self setImagData:self.image2 index:self.index];
     [self setImagData:self.image3 index:self.index + 1];
+    
+    //创建定时器
+    [self configTimer];
+}
+
+- (void)configTimer{
+    if (self.timer == nil) {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(automaticCycle) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)automaticCycle{
+    NSLog(@"111");
+    self.isTimer = YES;
+    [self.scrollView setContentOffset:CGPointMake(kScreenW * 2, 0) animated:YES];
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    //    NSLog(@"%f",scrollView.contentOffset.x);
+    //NSLog(@"%f",scrollView.contentOffset.x);
+    
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    NSLog(@"%s",__func__);
+    if (self.isTimer) {
+        [self setImageData:scrollView];
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;{
+    [self.timer invalidate];
+    self.timer = nil;
+    self.isTimer = NO;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self setImageData:scrollView];
     
+    __weak typeof(self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      [weakSelf configTimer];
+    });
+}
+
+- (void)setImageData:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.x > kScreenW) {
         self.index++;
         if (self.index == (self.imgArr.count - 1)) {
@@ -112,7 +152,9 @@
 
 - (void)clickImageMethod:(UITapGestureRecognizer *)tap{
     
-    NSLog(@"%ld",(long)self.index);
+    if (self.didSelectImageBlock) {
+        self.didSelectImageBlock(self.index);
+    }
     
 }
 // MARK: - lazy
@@ -123,6 +165,8 @@
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.showsHorizontalScrollIndicator = NO;
     }
     return _scrollView;
 }
